@@ -17,13 +17,12 @@ export default {
       return false
     }
 
-    let printableElement
+    let printableElement = document.createElement('div')
     if (typeof params.printable === 'string') {
       // Make a copy of the printElement to prevent DOM changes
-      printableElement = document.createElement('div')
       printableElement.appendChild(printElement.cloneNode(true))
     } else {
-      printableElement = params.printable
+      printableElement.appendChild(printElement)
     }
 
     // Add cloned element to DOM, to have DOM element methods available. It will also be easier to colect styles
