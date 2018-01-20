@@ -24,7 +24,7 @@ export default {
     // Add cloned element to DOM, to have DOM element methods available. It will also be easier to colect styles
     printableElement.setAttribute('style', 'display:none;')
     printableElement.setAttribute('id', 'printJS-html')
-    printElement.parentNode.appendChild(printableElement)
+    document.body.appendChild(printableElement)
 
     // Update printableElement variable with newly created DOM element
     printableElement = document.getElementById('printJS-html')
@@ -44,7 +44,7 @@ export default {
     }
 
     // Remove DOM printableElement
-    printableElement.parentNode.removeChild(printableElement)
+    document.body.removeChild(printableElement)
 
     // Store html data
     params.htmlData = addWrapper(printableElement.innerHTML, params)
