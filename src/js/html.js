@@ -4,7 +4,11 @@ import Print from './print'
 export default {
   print: (params, printFrame) => {
     // Get HTML printable element
-    let printElement = document.getElementById(params.printable)
+    let printElement = typeof params.printable === 'string'
+      ? document.getElementById(params.printable)
+      : typeof params.printable === 'object'
+        ? params.printable
+        : null
 
     // Check if element exists
     if (!printElement) {
